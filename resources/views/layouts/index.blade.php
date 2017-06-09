@@ -1,4 +1,4 @@
-<html>
+<html lang="{{ config('app.locale') }}">
 <head>
  @component('layouts.head') @endcomponent
 </head>

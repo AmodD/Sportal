@@ -8,3 +8,5 @@
 @component('layouts.bottom') @endcomponent
 
 </section>
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>

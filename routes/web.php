@@ -14,6 +14,9 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/welcome', function() { 
+	return view('welcome');
+});
 
 
 Route::get('/teams/{team}', 'TeamsController@show');
@@ -35,3 +38,8 @@ Route::get('/test', function () {
 
 	dd($event,$event->leagueTable());
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+
