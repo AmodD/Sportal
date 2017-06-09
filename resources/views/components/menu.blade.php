@@ -3,7 +3,7 @@
     General
   </p>
   <ul class="menu-list">
-    <li><a>Dashboard</a></li>
+    <li><a href="/dashboard">Dashboard</a></li>
     <li><a>Tournament Planner</a></li>
   </ul>
   <p class="menu-label">
@@ -12,7 +12,7 @@
   <ul class="menu-list">
     <li><a>Team Settings</a></li>
     <li>
-      <a class="is-active">Manage Your Participants</a>
+      <a class="">Manage Your Participants</a>
       <ul>
         <li><a>Create Profiles</a></li>
         <li><a>Update Teams</a></li>
@@ -27,8 +27,9 @@
     Knowledge Center
   </p>
   <ul class="menu-list">
-    <li><a>FAQs</a></li>
-    <li><a>Terminology</a></li>
-    <li><a>Database Design</a></li>
+    <li><a href="/faqs">FAQs</a></li>
+    <li><a href="/terminology">Terminology</a></li>
+    <li><a href="/erd">Database Design</a></li>
+    <li><a href="/journey">Journey</a></li>
   </ul>
 </aside>

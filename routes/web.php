@@ -43,3 +43,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
+Route::get('/erd', function() { return view('home'); })->name('erd');
+Route::get('/journey', function() { return view('home'); })->name('journey');
+Route::get('/terminology', function() { return view('home'); })->name('terminology');
+Route::get('/faqs', function() { return view('home'); })->name('faqs');
+Route::get('/dashboard', function() { return view('home'); })->name('dashboard');

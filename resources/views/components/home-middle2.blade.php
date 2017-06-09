@@ -5,7 +5,7 @@
 
 
 	<div class="column is-one-quarter">
-		<h1 class="title has-text-centered">The Indian Sportal</h1>
+		<h1 class="title is-pulled-right">Sportal</h1>
 	</div>
 	<div class="column is-half">
 		<input class="input" type="text" id="search" name="search" placeholder="Search Tournaments , Players , Teams ..." required>

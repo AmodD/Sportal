@@ -6,7 +6,7 @@
 <div class="nav-left nav-menu">
         @if (Auth::check())
 	<a class="nav-item is-tab" href="#">Create Tournament</a>
-	<a class="nav-item is-tab" href="#">Create Event</a>
+	<a class="nav-item is-tab" href="#">Create Profile</a>
 	@endif
 </div>
 <div class="nav-right nav-menu">
