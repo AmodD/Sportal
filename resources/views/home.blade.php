@@ -11,7 +11,6 @@
 		@component('components.menu') @endcomponent
 		</div>
 		<div class="column">
-		@component('components.home-middle2') @endcomponent
 		@component('components.home') @endcomponent
 		</div>
 	@else

@@ -17,3 +17,6 @@ $routeName =  Route::currentRouteName() ;
 @if($routeName == 'dashboard' || $routeName == 'home' || $routeName == '')
 	@component('components.dashboard') @endcomponent
 @endif
+@if($routeName == 'main')
+	@component('components.home-middle2') @endcomponent
+@endif
