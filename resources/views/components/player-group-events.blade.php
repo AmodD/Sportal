@@ -10,7 +10,7 @@
 		&nbsp;&nbsp;<small><em> titles </em> </small> {{ $team->titles()  }}
 		<br><br>
 		@foreach($team->playerEvents() as $event)
-		<strong>{{ $event->participantExitRound($team->participant) }}</strong> <span class="icon"><i class="fa fa-star"></i></span>
+		<strong>{{ $event->participantExitRound($team->participant) }}</strong>
 			@component('components.events_list',[
 			'event' => $event
 			]) @endcomponent
