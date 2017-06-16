@@ -6,12 +6,15 @@
 
 @section('middlecontent')
 	<div class="columns">
-	@if(Auth::check()) 
+	@if(Auth::check())
+	@php
+	if(empty($data)) $data = '';
+	@endphp 
 		<div class="column is-one-quarter">
 		@component('components.menu') @endcomponent
 		</div>
 		<div class="column">
-		@component('components.home') @endcomponent
+		@component('components.home',['data' => $data]) @endcomponent
 		</div>
 	@else
 	<div class="column">

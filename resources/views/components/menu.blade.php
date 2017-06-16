@@ -7,6 +7,21 @@
     <li><a>Tournament Planner</a></li>
   </ul>
   <p class="menu-label">
+    Super Admin
+  </p>
+  <ul class="menu-list">
+    <li><a href="/users"><span class="icon"><i class="fa fa-users"></i></span>&nbsp; User List</a></li>
+    <li><a>Player List</a></li>
+    <li>
+      <a class="">Things To Do</a>
+      <ul>
+        <li><a>Next Actions</a></li>
+        <li><a>Item List</a></li>
+        <li><a>Issues</a></li>
+      </ul>
+    </li>
+  </ul>
+  <p class="menu-label">
     Administration
   </p>
   <ul class="menu-list">

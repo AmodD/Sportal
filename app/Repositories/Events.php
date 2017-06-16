@@ -109,7 +109,7 @@ class Events
 			}
 //https://stackoverflow.com/questions/25451019/what-is-the-syntax-for-sorting-an-eloquent-collection-by-multiple-columns
 			$tableC = $tableC->sortByDesc(function($tableC) {
-				    return sprintf('%-12s%s', $tableC->get('points'), $tableC->get('difference'));
+				    return sprintf('%-12s%s', $tableC->get('points'), $tableC->get('difference') , $tableC->get('scored') );
 			});
 
 			//return $tableC;

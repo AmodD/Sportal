@@ -48,3 +48,7 @@ Route::get('/journey', function() { return view('home'); })->name('journey');
 Route::get('/terminology', function() { return view('home'); })->name('terminology');
 Route::get('/faqs', function() { return view('home'); })->name('faqs');
 Route::get('/dashboard', function() { return view('home'); })->name('dashboard');
+
+Route::get('/users', 'UsersController@index')->name('users');
+Route::patch('/users/{user}','UsersController@update');
+Route::delete('/users/{user}','UsersController@destroy');

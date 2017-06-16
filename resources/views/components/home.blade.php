@@ -20,3 +20,6 @@ $routeName =  Route::currentRouteName() ;
 @if($routeName == 'main')
 	@component('components.home-middle2') @endcomponent
 @endif
+@if($routeName == 'users')
+	@component('components.users',['data' => $data]) @endcomponent
+@endif

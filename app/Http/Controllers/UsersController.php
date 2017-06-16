@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Player;
+use App\User;
 use Illuminate\Http\Request;
-use App\Repositories\Players;
 
-class PlayersController extends Controller
+class UsersController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +19,10 @@ class PlayersController extends Controller
      */
     public function index()
     {
+	    $data = User::all();
+    //dd($data);	    
 
+        return view('home',compact('data'));
     }
 
     /**
@@ -42,21 +49,21 @@ class PlayersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(Player $player)
+    public function show(User $user)
     {
-	    return view('player',compact('player'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
         //
     }
@@ -65,22 +72,26 @@ class PlayersController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+    	$user->update(["name" => $request->name]);
+
+    	return back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+	    $user->delete();
+
+	    return back();
     }
 }
