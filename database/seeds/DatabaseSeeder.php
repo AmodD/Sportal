@@ -142,27 +142,4 @@ class DatabaseSeeder extends Seeder
 	    
     }
 
-
-    private function singlesTennis($e)
-    {
-	    
-		$this->eventParticipants($e->id,$e->totalparticipants,'App\Player',$e->gender);	
-
-		factory(App\Match::class,4)->create(["event_id" => $e->id, "round_id" => "3", "name" => "quarters" ]);
-		factory(App\Match::class,2)->create(["event_id" => $e->id, "round_id" => "2", "name" => "semis" ]);
-		factory(App\Match::class)->create(["event_id" => $e->id, "round_id" => "1", "name" => "finals" ]);
-    }
-
-    private function hockey($e)
-    {
-
-		$this->eventParticipants($e->id,$e->totalparticipants,'App\Team',$e->gender);	
-
-		factory(App\Match::class,4)->create(["event_id" => $e->id, "round_id" => "3", "name" => "quarters" ]);
-		factory(App\Match::class,2)->create(["event_id" => $e->id, "round_id" => "2", "name" => "semis" ]);
-		factory(App\Match::class)->create(["event_id" => $e->id, "round_id" => "1", "name" => "finals" ]);
-
-    }
-
-
 }

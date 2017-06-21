@@ -6,6 +6,7 @@
     <li><a href="/dashboard"><span class="icon"><i class="fa fa-dashboard"></i></span>&nbsp; Dashboard</a></li>
     <li><a>Tournament Planner</a></li>
   </ul>
+@can('superAdmin', App\Admin::class)
   <p class="menu-label">
     Super Admin
   </p>
@@ -21,6 +22,7 @@
       </ul>
     </li>
   </ul>
+@endcan
   <p class="menu-label">
     Administration
   </p>

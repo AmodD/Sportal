@@ -9,7 +9,8 @@ class UsersController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+	    $this->middleware('auth');
+
     }
 
     /**
@@ -19,6 +20,7 @@ class UsersController extends Controller
      */
     public function index()
     {
+	    $this->authorize('superAdmin', 'App\Admin');
 	    $data = User::all();
     //dd($data);	    
 
