@@ -14,7 +14,10 @@ class ClubsController extends Controller
      */
     public function index()
     {
-        //
+	$data = Club::all();
+//	dd($data);	    
+
+        return view('home',compact('data'));
     }
 
     /**
@@ -67,9 +70,12 @@ class ClubsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Club $club)
     {
         //
+    	$club->update(["name" => $request->name]);
+
+    	return back();
     }
 
     /**

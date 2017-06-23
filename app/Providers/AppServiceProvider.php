@@ -14,6 +14,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+	    view()->composer('components.teams',function($view){
+		    $view->with('sports',\App\Sport::all());
+	    });
     }
 
     /**

@@ -15,6 +15,10 @@ class TeamsController extends Controller
     public function index()
     {
         //
+	    $data = Team::with('sport')->orderBy('name')->simplePaginate(10);
+//	dd($data);	    
+
+        return view('home',compact('data'));
     }
 
     /**
@@ -35,7 +39,18 @@ class TeamsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+	    Team::create([
+		    "name" => $request->name,
+		    "sport_id" => $request->sport_id,
+		    "club_id" => 6,
+		    "website" => $request->website,
+		    "slogan" => $request->slogan,
+		    "sponsor" => $request->sponsor,
+		    "location" => $request->location,
+		    "established" => $request->established,
+	    ]);
+
+    	return back();
     }
 
     /**
@@ -69,9 +84,19 @@ class TeamsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Team $team)
     {
         //
+	    $team->update([
+		    "name" => $request->name,
+		    "website" => $request->website,
+		    "slogan" => $request->slogan,
+		    "sponsor" => $request->sponsor,
+		    "location" => $request->location,
+		    "established" => $request->established,
+	    ]);
+
+    	return back();
     }
 
     /**

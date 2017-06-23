@@ -11,34 +11,16 @@
     Super Admin
   </p>
   <ul class="menu-list">
-    <li><a href="/users"><span class="icon"><i class="fa fa-users"></i></span>&nbsp; User List</a></li>
-    <li><a>Player List</a></li>
-    <li>
-      <a class="">Things To Do</a>
-      <ul>
-        <li><a>Next Actions</a></li>
-        <li><a>Item List</a></li>
-        <li><a>Issues</a></li>
-      </ul>
-    </li>
+    <li><a href="/users"><span class="icon"><i class="fa fa-user-times"></i></span>&nbsp; User List</a></li>
   </ul>
 @endcan
   <p class="menu-label">
     Administration
   </p>
   <ul class="menu-list">
-    <li><a>Team Settings</a></li>
-    <li>
-      <a class="">Manage Your Participants</a>
-      <ul>
-        <li><a>Create Profiles</a></li>
-        <li><a>Update Teams</a></li>
-        <li><a>Enter Scores</a></li>
-      </ul>
-    </li>
-    <li><a>Send Newsletters</a></li>
-    <li><a>Social Media Handle</a></li>
-    <li><a>Approve Players</a></li>
+    <li><a href="/clubs"><span class="icon"><i class="fa fa-institution"></i></span>&nbsp; Clubs</a></li>
+    <li><a href="/teams"><span class="icon"><i class="fa fa-users"></i></span>&nbsp; Teams</a></li>
+    <li><a>Players</a></li>
   </ul>
   <p class="menu-label">
     Knowledge Center

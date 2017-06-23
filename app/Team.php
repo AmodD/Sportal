@@ -6,6 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Team extends Model
 {
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name', 'sport_id', 'club_id', 'website', 'slogan', 'sponsor', 'location', 'established'
+    ];
 
 	public function sport()
 	{

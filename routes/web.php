@@ -52,3 +52,11 @@ Route::get('/dashboard', function() { return view('home'); })->name('dashboard')
 Route::get('/users', 'UsersController@index')->name('users');
 Route::patch('/users/{user}','UsersController@update');
 Route::delete('/users/{user}','UsersController@destroy');
+
+Route::get('/clubs', 'ClubsController@index')->name('clubs');
+Route::patch('/clubs/{club}','ClubsController@update');
+
+Route::get('/teams', 'TeamsController@index')->name('teams');
+Route::post('/teams','TeamsController@store');
+Route::patch('/teams/{team}','TeamsController@update');
+
