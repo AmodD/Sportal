@@ -1,14 +1,14 @@
+<div id = "app">
 
 @foreach($player->teamSports() as $sport => $teams )
-<span class="tag is-info is-large">{{ $sport }}</span><br>
-	@foreach($teams as $team)
-		<br><span class="tag is-success is-medium"><a href="/teams/{{ $team->id }}">{{ $team->name }}</a></span>
 
-	&nbsp;&nbsp;&nbsp;&nbsp;
-		<small><em> matches  </em></small> {{ $team->matchesPlayed() }}
-		&nbsp;&nbsp;<small><em> won</em></small> {{ $team->matchesWon() }} 
-		&nbsp;&nbsp;<small><em> titles </em> </small> {{ $team->titles()  }}
-		<br><br>
+	<psd sportname={{ $sport }} 
+	     :teams="{{ $teams->toJson() }}"
+	     :seasons="{{ $player->seasonsBySports()->get($sport) }}">
+	</psd>
+
+	
+	@foreach($teams as $team)
 		@foreach($team->playerEvents() as $event)
 		<strong>{{ $event->participantExitRound($team->participant) }}</strong>
 			@component('components.events_list',[
@@ -16,4 +16,7 @@
 			]) @endcomponent
 		@endforeach
 	@endforeach
+	<br>
+
 @endforeach
+</div>

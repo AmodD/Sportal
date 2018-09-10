@@ -28,7 +28,7 @@ class Team extends Model
 	public function players()
 	{
 		return $this->belongsToMany(Player::class)->withPivot('event_id');
-	}
+}
 
 	public function events()
 	{
@@ -81,6 +81,11 @@ class Team extends Model
 	public function teamEventPlayers(\App\Event $event)
 	{
 		return $this->players()->wherePivot('event_id',$event->id)->get();
+
+	}
+
+	public function teamParticipantYears()
+	{
 
 	}
 

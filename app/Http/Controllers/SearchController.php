@@ -10,6 +10,16 @@ use App\Club;
 
 class SearchController extends Controller
 {
+	public function players()
+	{
+		$searched = '%'.request('name').'%';
+		$players = Player::search($searched);
+
+	         return $players;
+
+	}
+
+
 	public function show()
 	{
 		$searched = '%'.request('search').'%';

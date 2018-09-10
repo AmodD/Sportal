@@ -15,8 +15,20 @@ class PlayersController extends Controller
      */
     public function index()
     {
-
+//	    return "in players";
+	    $players = Player::all();
+	    //return view('players',compact('players'));
+	    return $players;
     }
+
+    public function search()
+    {
+	    return "in players";
+//	    $players = Player::all();
+	    //return view('players',compact('players'));
+//	    return ;
+    }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -36,7 +48,7 @@ class PlayersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -47,6 +59,10 @@ class PlayersController extends Controller
      */
     public function show(Player $player)
     {
+//	    $players = new \App\Repositories\Players;
+//	    $data = $players->getData($player);
+//	    dd($player->seasonsBySports());
+//	    dd($data);
 	    return view('player',compact('player'));
     }
 

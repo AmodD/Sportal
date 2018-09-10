@@ -33,6 +33,55 @@ class Player extends Model
 //		return $this->hasManyThrough(Event::class,Participant::class);
 	}
 
+
+	public function seasons()
+	{
+		$seasons = collect([]);
+		$teams = $this->teams()->get();
+		
+		foreach($teams as $team)
+		{
+			foreach($team->playerEvents() as $event)
+			{
+			//	return $event ;
+				$seasons->push($event->season()->get());
+			}	
+		}
+
+		return $seasons;
+	}
+
+	public function seasonsBySports()
+	{
+
+		$seasonsBySport = collect([]);
+		$teamSports = $this->teamSports();
+
+	//	return $teamSports ; 	
+		foreach($teamSports as $sport => $teams)
+		{
+			$seasons = collect([]);
+			
+			foreach($teams as $team){
+			foreach($team->playerEvents() as $event)
+			{
+			//	return $event ;
+				$seasons->push($event->season->year);
+			}	
+			}
+
+			$sortedSeasons = $seasons->unique()->sort();
+//			dd($sortedSeasons,$sortedSeasons->values(),$sortedSeasons->values()->all());
+
+			$seasonsBySport->put($sport,$sortedSeasons->values());
+		}
+
+		return $seasonsBySport;
+
+		//return $this->teams()->find(82)->playerEvents()->find(45)->season()->get();
+
+	}
+
 	public function eventsBySport()
 	{
 		$events = $this->with('participant.events.format.sport')
@@ -96,6 +145,11 @@ class Player extends Model
 		return $matchups;
 	}
 
+//	public function teams()
+//	{
+//		return $this->with('teams')->find($this->id) ;
+//	}
+
 	public function teamSports()
 	{
 		$teamSports = $this->with('teams.sport')
@@ -115,6 +169,12 @@ class Player extends Model
 
 
 		return $teams;
+	}
+
+	public function yearsActive()
+	{
+
+
 	}
 
 	public function matchesPlayed($sport)

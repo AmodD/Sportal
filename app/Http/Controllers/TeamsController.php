@@ -14,11 +14,19 @@ class TeamsController extends Controller
      */
     public function index()
     {
-        //
-	    $data = Team::with('sport')->orderBy('name')->simplePaginate(10);
-//	dd($data);	    
+	$data = Team::orderBy('name')->simplePaginate(10);
 
-        return view('home',compact('data'));
+	return view('home',compact('data'));
+    }
+    
+    public function search()
+    {
+	$search = request('searchedname');
+	$searched = '%'.$search.'%';
+
+	$data = Team::where('name','like',$searched)->orderBy('name')->get();
+//	$data->withPath('search?searchedname='.$search);
+	return view('home',compact('data'));
     }
 
     /**
@@ -39,6 +47,10 @@ class TeamsController extends Controller
      */
     public function store(Request $request)
     {
+//	return ['one','four','five',$request->name];
+
+	$this->validation();	
+
 	    Team::create([
 		    "name" => $request->name,
 		    "sport_id" => $request->sport_id,
@@ -50,7 +62,15 @@ class TeamsController extends Controller
 		    "established" => $request->established,
 	    ]);
 
-    	return back();
+//	    dd($this);
+
+//	$data = Team::orderBy('name')->simplePaginate(10);
+
+//	return view('home',compact('data'));
+	    //    	return redirect()->route('teamstore');;
+		    return back();
+//	return "DOne successfully";
+	
     }
 
     /**
@@ -86,7 +106,7 @@ class TeamsController extends Controller
      */
     public function update(Request $request, Team $team)
     {
-        //
+	$this->validation();	
 	    $team->update([
 		    "name" => $request->name,
 		    "website" => $request->website,
@@ -109,4 +129,16 @@ class TeamsController extends Controller
     {
         //
     }
+
+    private function validation()
+    {
+	    $this->validate(request(),[
+		    "name" => "required|min:3",
+			"sport_id" => 'required',
+//			"website" => 'url',
+			"established" => 'nullable|numeric'	
+		]);
+
+    }
+
 }

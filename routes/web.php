@@ -21,22 +21,36 @@ Route::get('/welcome', function() {
 
 Route::get('/teams/{team}', 'TeamsController@show');
 Route::get('/clubs/{club}', 'ClubsController@show');
+
+
+//Route::get('/tournaments/create', function() {
+//return ['shrihan', 'soham', 'baby' , 'vivaan'];
+//});
+
+Route::get('/tournaments','TournamentsController@index')->name('tournaments');
+Route::post('/tournaments','TournamentsController@store')->name('tournaments');
+Route::get('/tournaments/create','TournamentsController@create')->name('tournament-create');
 Route::get('/tournaments/{tournament}', 'TournamentsController@show');
 Route::get('/tournaments/{tournament}/seasons/{season}', 'SeasonsController@show');
 Route::get('/tournaments/{tournament}/seasons/{season}/events/{event}', 'EventsController@show');
+
+Route::get('/events','EventsController@index')->name('events');
+Route::get('/events/{event}/edit','EventsController@edit')->name('events');
+Route::post('/events','EventsController@store');
+	
+
 Route::get('/players/{player}', 'PlayersController@show');
 Route::post('/search', 'SearchController@show');
 
 $selectedW = 0;
 
+//Route::get('/players/search', 'PlayersController@search');
+Route::get('/search/players', 'SearchController@players');
+
 Route::get('/test', function () {
 
+return ['shrihan', 'soham', 'baby' , 'vivaan'];
 
-	$e = new App\Event;
-
-	$event = $e->find(22);
-
-	dd($event,$event->leagueTable());
 });
 
 Auth::routes();
@@ -56,7 +70,12 @@ Route::delete('/users/{user}','UsersController@destroy');
 Route::get('/clubs', 'ClubsController@index')->name('clubs');
 Route::patch('/clubs/{club}','ClubsController@update');
 
+//if(request('page') == 2) dd('in web route');
+
 Route::get('/teams', 'TeamsController@index')->name('teams');
-Route::post('/teams','TeamsController@store');
+//Route::get('/teams/search/{searchedname?}', 'TeamsController@search')->name('teamsearch');
+Route::post('/teams','TeamsController@store')->name('teams');
+Route::post('/teams/search/{searchedname?}', 'TeamsController@search')->name('teamsearch');
+
 Route::patch('/teams/{team}','TeamsController@update');
 

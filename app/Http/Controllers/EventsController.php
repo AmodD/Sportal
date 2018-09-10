@@ -20,6 +20,15 @@ class EventsController extends Controller
     public function index()
     {
         //
+	    $events = Event::all();		 
+	    $tournaments = Tournament::all();
+	    $seasons = Season::all();
+	    $data = collect([]);
+	    $data->put('events',$events);
+	    $data->put('tournaments',$tournaments);
+	    $data->put('seasons',$seasons);
+//dd($data);
+        return view('home',compact('data'));
     }
 
     /**
@@ -40,7 +49,22 @@ class EventsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+//	    dd($request);
+	    $event = new Event();
+
+	    $event->name = $request->event_name;
+	    $event->season_id = ($request->season_id);
+	    $event->format_id = ($request->format);
+	    $event->level_id = ($request->level);
+	    $event->gender = ($request->gender);
+	    $event->type = ($request->type);
+	    $event->totalparticipants = (8);
+	    $event->winpts = (3);
+	    $event->status = (0);
+
+	    $event->save();
+
+	    return redirect("/tournaments");
     }
 
     /**
@@ -65,9 +89,11 @@ class EventsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Event $event)
     {
-        //
+	    //    dd($event);
+	  $data = $event;
+        return view('home',compact('data'));
     }
 
     /**

@@ -4,7 +4,13 @@
   </p>
   <ul class="menu-list">
     <li><a href="/dashboard"><span class="icon"><i class="fa fa-dashboard"></i></span>&nbsp; Dashboard</a></li>
-    <li><a>Tournament Planner</a></li>
+    <li>
+	<a><span class="icon"><i class="fa fa-wrench"></i></span>&nbsp; Tournament Planner</a>
+	<ul>
+        	<li><a href="/tournaments/create"><span class="icon"><i class="fa fa-plus"></i></span>&nbsp; Create Tour</a></li>
+        	<li><a href="/tournaments"><span class="icon"><i class="fa fa-navicon"></i></span>&nbsp; Manage Tour</a></li>
+      </ul>
+    </li>
   </ul>
 @can('superAdmin', App\Admin::class)
   <p class="menu-label">

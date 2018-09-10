@@ -17,6 +17,15 @@ class AppServiceProvider extends ServiceProvider
 	    view()->composer('components.teams',function($view){
 		    $view->with('sports',\App\Sport::all());
 	    });
+	    view()->composer('components.tournament-create',function($view){
+		    $view->with('sports',\App\Sport::all());
+
+	    });
+	    view()->composer('components.tournaments',function($view){
+
+		    $view->with('formats',\App\Format::all());
+		    $view->with('levels',\App\Level::all());
+	    });
     }
 
     /**

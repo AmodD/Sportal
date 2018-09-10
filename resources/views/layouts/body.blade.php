@@ -1,5 +1,6 @@
 
-<section class="hero is-dark is-fullheight">
+<section class="hero is-dark is-fullheight" style=" background-image: linear-gradient(rgba(0, 0, 0, 0.25),rgba(0, 0, 0, 0.30)),url('cricket_ground.png'); 
+					       background-size: 100% 100%;	">
 
 @component('layouts.top') @endcomponent
 

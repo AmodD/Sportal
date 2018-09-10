@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Tournament;
+use App\Season;
 use Illuminate\Http\Request;
 
 class TournamentsController extends Controller
@@ -14,7 +15,9 @@ class TournamentsController extends Controller
      */
     public function index()
     {
-        //
+	    $data = Tournament::all();
+
+     	    return view('home',compact('data'));
     }
 
     /**
@@ -24,7 +27,7 @@ class TournamentsController extends Controller
      */
     public function create()
     {
-        //
+        return view('home');
     }
 
     /**
@@ -35,7 +38,22 @@ class TournamentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+	    $tour = new Tournament();
+	    $season = new Season();
+
+//	    dd($request);
+	    $tour->name = $request->name ;
+	    $tour->sport_id = $request->sport;
+	    $tour->shortname = "";	
+
+	    $tour->save();
+
+	    $season->tournament_id = $tour->id ;
+	    //	    $season->year
+	    //	    $season->name
+	    $season->save();
+
+            return redirect("/tournaments");	
     }
 
     /**
